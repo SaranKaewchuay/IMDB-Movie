@@ -35,10 +35,10 @@ function MovieCard() {
   }, []);
 
   const handleScroll = () => {
-    console.log("window.innerHeight = ",window.innerHeight)
-    console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
-    console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
-    
+    // console.log("window.innerHeight = ",window.innerHeight)
+    // console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
+    // console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
+
     if (
       window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight - 1
@@ -49,6 +49,10 @@ function MovieCard() {
   
 
   useEffect(() => {
+    console.log("window.innerHeight = ",window.innerHeight)
+    console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
+    console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
