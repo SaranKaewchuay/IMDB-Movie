@@ -4,11 +4,12 @@ import NavBar from "../component/navbar";
 import TVCard from "../component/tvCard";
 import useFetchData from "../component/useFetchData";
 import useInfiniteScroll from "../component/useInfiniteScroll";
-
+import tv from "../json/tv"
 
 const TVShow = () => {
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250TVs/k_h24te63h"
+    // "https://imdb-api.com/en/API/Top250TVs/k_h24te63h"
+    tv
   );
 
   useInfiniteScroll(fetchData);

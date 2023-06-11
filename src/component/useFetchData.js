@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import tv from "../json/tv"
 
-const useFetchData = () => {
+
+const useFetchData = (data_catalog) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ const useFetchData = () => {
   const fetchData = async () => {
     setIsLoading(true);
 
-      const newDataSlice = tv.slice(
+      const newDataSlice = data_catalog.slice(
         page * 28,
         (page + 1) * 28
       );

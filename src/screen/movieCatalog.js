@@ -4,12 +4,13 @@ import NavBar from "../component/navbar";
 import MovieCard from "../component/movieCard";
 import useFetchData from "../component/useFetchData";
 import useInfiniteScroll from "../component/useInfiniteScroll";
-
+import movie from "../json/movie"
 
 const MovieCatalog = () => {
 
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250Movies/k_h24te63h"
+    // "https://imdb-api.com/en/API/Top250Movies/k_h24te63h"
+    movie
   );
 
   useInfiniteScroll(fetchData);

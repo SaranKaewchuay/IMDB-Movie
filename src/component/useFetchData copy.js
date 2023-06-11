@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// เปลี่ยนไปใช้ prevPage
 const useFetchData = (url) => {
   const [data, setData] = useState([]);
   let page = 0;
