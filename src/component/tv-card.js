@@ -18,9 +18,15 @@ function TVCard() {
         page * 28,
         (page + 1) * 28
       );
+      console.log(page * 28,(page + 1) * 28)
       
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     
     } catch (error) {
       console.error(error);
@@ -44,7 +50,6 @@ function TVCard() {
   
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
