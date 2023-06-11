@@ -22,8 +22,6 @@ function MovieCard() {
       
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
-
-      window.scrollTo(0, 0);
     
     } catch (error) {
       console.error(error);
@@ -48,6 +46,7 @@ function MovieCard() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    window.scrollTo(0, 0);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
