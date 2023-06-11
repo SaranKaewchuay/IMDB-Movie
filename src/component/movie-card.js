@@ -6,47 +6,47 @@ import NavBar from "./navbar";
 
 function MovieCard() {
   const [data, setData] = useState([]);
-  const [newDataSlice, setDataSlice] = useState([]);
+  let page = 0
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("https://imdb-api.com/en/API/Top250Movies/k_e95umfvt")
-      .then((response) => {
-        setData(response.data.items);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        "https://imdb-api.com/en/API/Top250Movies/k_n8j5zft2"
+      );
+      const newDataSlice = response.data.items.slice(
+        page * 28,
+        (page + 1) * 28
+      );
+      
+      console.log(newDataSlice)
+      console.log(response.data.items)
+      console.log(newDataSlice)
 
+      setData((prevData) => [...prevData, ...newDataSlice]);
+      // setPage((prevPage) => prevPage + 1);
+      page = page + 1
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
   useEffect(() => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log("newDataSlice =", newDataSlice);
-  }, [newDataSlice]);
-
-  const fetchData = () => {
-    setIsLoading(true);
-    const start = newDataSlice.length;
-    const end = start + 28;
-    const slicedData = data.slice(start, end);
-
-    setDataSlice((prevDataSlice) => [...prevDataSlice, ...slicedData]);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
-
   const handleScroll = () => {
-    const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 1) {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 1
+    ) {
       fetchData();
     }
   };
+  
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +57,7 @@ function MovieCard() {
     <div>
       <NavBar />
       <div className="grid">
-        {newDataSlice.map((data) => (
+        {data.map((data) => (
           <Link
             to={`/movie-detail?id=${data.id}`}
             className="text-decoration-none"

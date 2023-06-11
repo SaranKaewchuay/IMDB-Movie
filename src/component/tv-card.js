@@ -8,7 +8,7 @@ function TVCard() {
 
   useEffect(() => {
     axios
-      .get("https://imdb-api.com/en/API/Top250TVs/k_e95umfvt")
+      .get("https://imdb-api.com/en/API/Top250TVs/k_n8j5zft2")
       .then((response) => {
         setData(response.data.items);
         console.log(response.data.items);
