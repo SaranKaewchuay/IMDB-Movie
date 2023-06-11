@@ -7,6 +7,9 @@ function TVCard() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   let page = 0
+  window.innerHeight = 751
+  document.documentElement.scrollTop = 0
+  document.documentElement.offsetHeight = 160
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -51,7 +54,7 @@ function TVCard() {
     console.log("window.innerHeight = ",window.innerHeight)
     console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
     console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
