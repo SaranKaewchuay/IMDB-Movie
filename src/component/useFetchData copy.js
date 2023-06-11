@@ -1,22 +1,27 @@
 import { useState, useEffect } from "react";
-import tv from "../json/tv"
+import axios from "axios";
 
-const useFetchData = () => {
+const useFetchData = (url) => {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(0);
+  let page = 0;
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
-
-      const newDataSlice = tv.slice(
+    try {
+      const response = await axios.get(url);
+      const newDataSlice = response.data.items.slice(
         page * 28,
         (page + 1) * 28
       );
+
       setData((prevData) => [...prevData, ...newDataSlice]);
-      setPage((prevPage) => prevPage + 1);
-      // page = page + 1
-    
+      page = page + 1;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
