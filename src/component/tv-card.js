@@ -23,8 +23,6 @@ function TVCard() {
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
 
-      window.scrollTo(0, 0);
-    
     } catch (error) {
       console.error(error);
     } finally {
@@ -33,6 +31,7 @@ function TVCard() {
   };
   
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchData();
   }, []);
 
