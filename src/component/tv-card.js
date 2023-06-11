@@ -5,9 +5,8 @@ import NavBar from "./navbar";
 
 function TVCard() {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   let page = 0
-
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -19,11 +18,13 @@ function TVCard() {
         page * 28,
         (page + 1) * 28
       );
-      console.log(page * 28,(page + 1) * 28)
       
+      console.log(newDataSlice)
+      console.log(response.data.items)
+      console.log(newDataSlice)
+
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
-
     } catch (error) {
       console.error(error);
     } finally {
@@ -49,7 +50,6 @@ function TVCard() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
 
   return (
     <div>

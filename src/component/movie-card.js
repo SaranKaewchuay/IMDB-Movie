@@ -6,9 +6,8 @@ import NavBar from "./navbar";
 
 function MovieCard() {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   let page = 0
- 
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -21,9 +20,12 @@ function MovieCard() {
         (page + 1) * 28
       );
       
+      console.log(newDataSlice)
+      console.log(response.data.items)
+      console.log(newDataSlice)
+
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
-    
     } catch (error) {
       console.error(error);
     } finally {
@@ -32,9 +34,6 @@ function MovieCard() {
   };
   
   useEffect(() => {
-    window.innerHeight = 751
-    document.documentElement.scrollTop = 0
-    document.documentElement.offsetHeight = 160
     fetchData();
   }, []);
 
@@ -81,7 +80,7 @@ function MovieCard() {
           </Link>
         ))}
       </div>
-      <div style={{ textAlign:"center"}}>
+      <div style={{ margin: "150px" }}>
         {isLoading && <h1 className="text-center">Loading...</h1>}
       </div>
     </div>
