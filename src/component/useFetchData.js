@@ -6,6 +6,10 @@ const useFetchData = (url) => {
   let page = 0;
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const fetchData = async () => {
     setIsLoading(true);
     try {
@@ -23,10 +27,6 @@ const useFetchData = (url) => {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return { data, isLoading, fetchData };
 };
