@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/style.css";
-import NavBar from "../component/navBar";
+import NavBar from "../component/navbar";
 import MovieCard from "../component/movieCard";
 import useFetchData from "../component/useFetchData";
 import useInfiniteScroll from "../component/useInfiniteScroll";
