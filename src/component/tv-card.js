@@ -32,17 +32,10 @@ function TVCard() {
   };
   
   useEffect(() => {
-    // window.innerHeight = 751
-    // document.documentElement.scrollTop = 0
-    // document.documentElement.offsetHeight = 160
-    
     fetchData();
   }, []);
 
   const handleScroll = () => {
-    // console.log("window.innerHeight = ",window.innerHeight)
-    // console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
-    // console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
     if (
       window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight - 1
@@ -53,14 +46,6 @@ function TVCard() {
   
 
   useEffect(() => {
-    console.log("window.innerHeight = ",window.innerHeight)
-    console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
-    console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
-
-    window.innerHeight = 751
-    document.documentElement.scrollTop = 0
-    document.documentElement.offsetHeight = 160
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
