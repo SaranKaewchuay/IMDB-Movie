@@ -1,12 +1,32 @@
+import React from "react";
 import "../style/style.css";
+import NavBar from "../component/navbar";
 import MovieCard from "../component/movie-card";
+import useFetchData from "../component/useFetchData";
+import useInfiniteScroll from "../component/useInfiniteScroll";
 
-function MovieCatalog() {
+
+const MovieCatalog = () => {
+
+  const { data, isLoading, fetchData } = useFetchData(
+    "https://imdb-api.com/en/API/Top250Movies/k_516lkra2"
+  );
+
+  useInfiniteScroll(fetchData);
+
   return (
     <div className="container margin-top-bottom-5">
-        <MovieCard/>
+      <NavBar />
+      <div className="grid">
+        {data.map((item) => (
+          <MovieCard key={item.id} data={item} />
+        ))}
+      </div>
+      <div style={{ textAlign:"center"}}>
+        {isLoading && <h1 className="text-center">Loading...</h1>}
+      </div>
     </div>
   );
-}
+};
 
 export default MovieCatalog;

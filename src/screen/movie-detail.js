@@ -12,7 +12,7 @@ function MovieDetail() {
 
   useEffect(() => {
     axios
-      .get(`https://imdb-api.com/en/API/Title/k_58ifr915/${id}`)
+      .get(`https://imdb-api.com/en/API/Title/k_516lkra2/${id}`)
       .then((response) => {
         setData(response.data);
         console.log(response.data);
