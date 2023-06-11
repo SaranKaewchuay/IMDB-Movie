@@ -46,7 +46,6 @@ function MovieCard() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    window.scrollTo(0, 0);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

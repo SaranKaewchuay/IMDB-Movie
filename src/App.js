@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MovieCatalog />} />
+        <Route path="/movie" element={<MovieCatalog />} index />
         <Route path="/movie-detail/" element={<MovieDetail />} />
         <Route path="/tv-show" element={<TVShow />} />
       </Routes>
