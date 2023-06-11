@@ -5,17 +5,47 @@ import NavBar from "./navbar";
 
 function TVCard() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  let page = 0
+  
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        "https://imdb-api.com/en/API/Top250TVs/k_87rkt627"
+      );
+      const newDataSlice = response.data.items.slice(
+        page * 28,
+        (page + 1) * 28
+      );
+      
+      setData((prevData) => [...prevData, ...newDataSlice]);
+      page = page + 1
+    
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 1
+    ) {
+      fetchData();
+    }
+  };
+  
 
   useEffect(() => {
-    axios
-      .get("https://imdb-api.com/en/API/Top250TVs/k_n8j5zft2")
-      .then((response) => {
-        setData(response.data.items);
-        console.log(response.data.items);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
 
@@ -36,6 +66,9 @@ function TVCard() {
               </div>
             </div>
         ))}
+      </div>
+      <div style={{ textAlign:"center"}}>
+        {isLoading && <h1 className="text-center">Loading...</h1>}
       </div>
     </div>
   );

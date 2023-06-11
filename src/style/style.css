@@ -1,8 +1,5 @@
 * {
-  /* font-family: 'Kodchasan', sans-serif; */
   font-family: 'Rubik', sans-serif; 
-  /* font-family: 'Mochiy Pop P One', sans-serif; */
-  /* font-family: 'sarabun', sans-serif; */
 }
 
 .card {
@@ -116,12 +113,6 @@
   text-overflow: ellipsis;
 }
 
-/* .image-card {
-  width: 22%;
-  border-radius: 10px;
-
-} */
-
 .image-card {
   width: 360px;
   border: none;
@@ -194,7 +185,7 @@
 .button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #d5d5d5;
+  background-color: #ffffff;
   color: #000000;
   text-decoration: none;
   border: none;
@@ -203,11 +194,11 @@
 }
 
 .button:hover {
-  background-color: #b0b0b0;
+  background-color: #d4d2d2;
 }
 
 .button:active {
-  background-color: #b0b0b0;
+  background-color: #d4d2d2;
 }
 
 .navbar {
@@ -218,8 +209,6 @@
   background-color: #f3f3f3;
   height: 60px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 8px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -235,6 +224,11 @@
   margin-right: 20px;
 }
 
+.navbar-item button{
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 .navbar-item Link {
   color: #000000;
   text-decoration: none;
@@ -243,3 +237,10 @@
 .navbar-item Link:hover {
   text-decoration: underline;
 }
+.image-nav {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  padding: 8px 0px 8px 18px;
+}
+

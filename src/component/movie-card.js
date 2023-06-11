@@ -6,26 +6,23 @@ import NavBar from "./navbar";
 
 function MovieCard() {
   const [data, setData] = useState([]);
-  let page = 0
   const [isLoading, setIsLoading] = useState(false);
+  let page = 0
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://imdb-api.com/en/API/Top250Movies/k_n8j5zft2"
+        "https://imdb-api.com/en/API/Top250Movies/k_87rkt627"
       );
       const newDataSlice = response.data.items.slice(
         page * 28,
         (page + 1) * 28
       );
       
-      console.log(newDataSlice)
-      console.log(response.data.items)
-
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
-
+    
     } catch (error) {
       console.error(error);
     } finally {
@@ -80,7 +77,7 @@ function MovieCard() {
           </Link>
         ))}
       </div>
-      <div style={{ margin: "150px" }}>
+      <div style={{ textAlign:"center"}}>
         {isLoading && <h1 className="text-center">Loading...</h1>}
       </div>
     </div>
