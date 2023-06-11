@@ -12,7 +12,7 @@ function TVCard() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://imdb-api.com/en/API/Top250TVs/k_87rkt627"
+        "https://imdb-api.com/en/API/Top250TVs/k_58ifr915"
       );
       const newDataSlice = response.data.items.slice(
         page * 28,
