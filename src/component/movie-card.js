@@ -23,10 +23,7 @@ function MovieCard() {
       setData((prevData) => [...prevData, ...newDataSlice]);
       page = page + 1
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo(0, 0);
     
     } catch (error) {
       console.error(error);
