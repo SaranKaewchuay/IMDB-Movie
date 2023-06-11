@@ -9,7 +9,7 @@ import useInfiniteScroll from "../component/useInfiniteScroll";
 const MovieCatalog = () => {
 
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250Movies/k_516lkra2"
+    "https://imdb-api.com/en/API/Top250Movies/k_ah6fon4i"
   );
 
   useInfiniteScroll(fetchData);
@@ -17,6 +17,7 @@ const MovieCatalog = () => {
   return (
     <div className="container margin-top-bottom-5">
       <NavBar />
+      <p className="text-catalog-title">Latest Movies</p>
       <div className="grid">
         {data.map((item) => (
           <MovieCard key={item.id} data={item} />

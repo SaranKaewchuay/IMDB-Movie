@@ -8,7 +8,7 @@ import useInfiniteScroll from "../component/useInfiniteScroll";
 
 const TVShow = () => {
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250TVs/k_516lkra2"
+    "https://imdb-api.com/en/API/Top250TVs/k_ah6fon4i"
   );
 
   useInfiniteScroll(fetchData);
@@ -16,6 +16,7 @@ const TVShow = () => {
   return (
     <div className="container margin-top-bottom-5">
       <NavBar />
+      <p className="text-catalog-title">Latest TV Shows</p>
       <div className="grid">
         {data.map((item) => (
           <TVCard key={item.id} data={item} />

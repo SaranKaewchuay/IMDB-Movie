@@ -8,7 +8,7 @@ const useFetchMovieDetail = (id) => {
     const fetchMovieData = async () => {
       try {
         const response = await axios.get(
-          `https://imdb-api.com/en/API/Title/k_516lkra2/${id}`
+          `https://imdb-api.com/en/API/Title/k_ah6fon4i/${id}`
         );
         setData(response.data);
         console.log(response.data);

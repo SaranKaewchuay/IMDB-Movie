@@ -76,6 +76,12 @@
   }
 }
 
+.text-catalog-title {
+  font-size: 21px;
+  margin: 15px 15px 15px 0px;
+  font-weight: 300;
+}
+
 .text-center {
   text-align: center;
 }
