@@ -7,9 +7,7 @@ function TVCard() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   let page = 0
-  window.innerHeight = 751
-  document.documentElement.scrollTop = 0
-  document.documentElement.offsetHeight = 160
+
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -34,6 +32,10 @@ function TVCard() {
   };
   
   useEffect(() => {
+    window.innerHeight = 751
+    document.documentElement.scrollTop = 0
+    document.documentElement.offsetHeight = 160
+    
     fetchData();
   }, []);
 
