@@ -2,35 +2,26 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "../style/style.css";
-import Breadcrumb from "../component/breadcrumb";
+import BreadCrumb from "../component/breadcrumb";
+import useFetchMovieDetail from "../component/useFetchMovieDetail";
 
-function MovieDetail() {
-  const [data, setData] = useState([]);
+const MovieDetail = () => {
+
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get("id");
 
-  useEffect(() => {
-    axios
-      .get(`https://imdb-api.com/en/API/Title/k_516lkra2/${id}`)
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  const data = useFetchMovieDetail(id);
 
   return (
     <div className="container">
       <div className="margin">
-        <Breadcrumb title={data.title} />
+        <BreadCrumb title={data.title} />
         <div className="row ">
           <div className="column-contents flex-container">
-            <img className="image-card" src={data.image} />
+            <img className="image-card" src={data.image} alt="Movie Poster" />
           </div>
-          <div class="flex-container">
+          <div className="flex-container">
             <div className="margin-left">
               <div className="margin-content ">
                 <p className="title">{data.title}</p>
@@ -66,6 +57,6 @@ function MovieDetail() {
       </div>
     </div>
   );
-}
+};
 
 export default MovieDetail;

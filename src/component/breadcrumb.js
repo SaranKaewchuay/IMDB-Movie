@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Breadcrumbs(props) {
+function BreadCrumb(props) {
   return (
     <div className="breadcrumbs">
       <Link to="/" className="text-decoration-none">
@@ -13,4 +13,4 @@ function Breadcrumbs(props) {
   );
 }
 
-export default Breadcrumbs;
+export default BreadCrumb;
