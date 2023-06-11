@@ -1,8 +1,8 @@
 import "./App.css";
 import * as React from "react";
-import MovieCatalog from "./screen/movie-catalog";
-import TVShow from "./screen/tv-show";
-import MovieDetail from "./screen/movie-detail";
+import MovieCatalog from "./screen/movieCatalog";
+import TVShow from "./screen/tvShow";
+import MovieDetail from "./screen/movieDetail";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

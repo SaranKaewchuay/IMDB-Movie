@@ -1,14 +1,15 @@
 import React from "react";
 import "../style/style.css";
-import NavBar from "../component/navbar";
-import TVCard from "../component/tv-card";
+import NavBar from "../component/navBar";
+import MovieCard from "../component/movieCard";
 import useFetchData from "../component/useFetchData";
 import useInfiniteScroll from "../component/useInfiniteScroll";
 
 
-const TVShow = () => {
+const MovieCatalog = () => {
+
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250TVs/k_516lkra2"
+    "https://imdb-api.com/en/API/Top250Movies/k_516lkra2"
   );
 
   useInfiniteScroll(fetchData);
@@ -18,7 +19,7 @@ const TVShow = () => {
       <NavBar />
       <div className="grid">
         {data.map((item) => (
-          <TVCard key={item.id} data={item} />
+          <MovieCard key={item.id} data={item} />
         ))}
       </div>
       <div style={{ textAlign:"center"}}>
@@ -28,6 +29,4 @@ const TVShow = () => {
   );
 };
 
-export default TVShow;
-
-
+export default MovieCatalog;
