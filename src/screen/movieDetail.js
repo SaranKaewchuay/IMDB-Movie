@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import "../style/style.css";
-import BreadCrumb from "../component/breadCrumb";
+import BreadCrumb from "../component/breadcrumb";
 import useFetchMovieDetail from "../component/useFetchMovieDetail";
 
 const MovieDetail = () => {
