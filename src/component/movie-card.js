@@ -32,8 +32,8 @@ function MovieCard() {
   };
   
   useEffect(() => {
-    // window.innerHeight = 751
-    // document.documentElement.scrollTop = 0
+    window.innerHeight = 751
+    document.documentElement.scrollTop = 0
     document.documentElement.offsetHeight = 160
     fetchData();
   }, []);
@@ -56,6 +56,10 @@ function MovieCard() {
     console.log("window.innerHeight = ",window.innerHeight)
     console.log("document.documentElement.scrollTop =",document.documentElement.scrollTop)
     console.log("document.documentElement.offsetHeight  =",document.documentElement.offsetHeight )
+    
+    window.innerHeight = 751
+    document.documentElement.scrollTop = 0
+    document.documentElement.offsetHeight = 160
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
