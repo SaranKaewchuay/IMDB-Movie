@@ -7,8 +7,7 @@ function TVCard() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   let page = 0
-  window.scrollTo(0, 0);
-  
+
   const fetchData = async () => {
     setIsLoading(true);
     try {
