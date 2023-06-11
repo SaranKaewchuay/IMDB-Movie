@@ -31,7 +31,9 @@ function TVCard() {
   };
   
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.window.innerHeight = 0
+    document.documentElement.scrollTop = 0
+    
     fetchData();
   }, []);
 
