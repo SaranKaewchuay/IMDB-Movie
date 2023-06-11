@@ -32,8 +32,8 @@ function MovieCard() {
   };
   
   useEffect(() => {
-    window.innerHeight = 751
-    document.documentElement.scrollTop = 0
+    // window.innerHeight = 751
+    // document.documentElement.scrollTop = 0
     document.documentElement.offsetHeight = 160
     fetchData();
   }, []);
