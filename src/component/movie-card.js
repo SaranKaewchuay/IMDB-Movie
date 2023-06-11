@@ -22,11 +22,10 @@ function MovieCard() {
       
       console.log(newDataSlice)
       console.log(response.data.items)
-      console.log(newDataSlice)
 
       setData((prevData) => [...prevData, ...newDataSlice]);
-      // setPage((prevPage) => prevPage + 1);
       page = page + 1
+
     } catch (error) {
       console.error(error);
     } finally {
@@ -61,7 +60,7 @@ function MovieCard() {
           <Link
             to={`/movie-detail?id=${data.id}`}
             className="text-decoration-none"
-            key={data.id} // Add a unique key prop to each rendered item
+            key={data.id} 
           >
             <div class="row">
               <div class="card column">
