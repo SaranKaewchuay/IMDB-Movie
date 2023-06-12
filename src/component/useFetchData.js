@@ -33,4 +33,3 @@ const useFetchData = (url) => {
 };
 
 export default useFetchData;
-
