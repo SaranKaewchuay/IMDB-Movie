@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import "../style/style.css";
 
-const handleLinkClick = () => {
-  setTimeout(() => {
-    window.location.reload();
-  }, 100); 
-};
 const NavBar = () => {
   return (
     <nav className="navbar">
@@ -18,12 +13,12 @@ const NavBar = () => {
       </div>
       <ul className="navbar-list">
         <li className="navbar-item">
-          <Link to="/" className="text-decoration-none" onClick={handleLinkClick}>
+          <Link to="/" className="text-decoration-none" >
             <button className="button">Movie</button>
           </Link>
         </li>
         <li className="navbar-item">
-          <Link to="/tv-show" className="text-decoration-none" onClick={handleLinkClick}>
+          <Link to="/tv-show" className="text-decoration-none" >
             <button className="button">TV Show</button>
           </Link>
         </li>
