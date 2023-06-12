@@ -4,7 +4,7 @@ import "../style/style.css";
 const handleLinkClick = () => {
   setTimeout(() => {
     window.location.reload();
-  }, 1500); 
+  }, 500); 
 };
 const NavBar = () => {
   return (
