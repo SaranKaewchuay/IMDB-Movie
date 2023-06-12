@@ -4,7 +4,7 @@ import NavBar from "../component/navbar";
 import MovieCard from "../component/movieCard";
 import useFetchData from "../component/useFetchData";
 import useInfiniteScroll from "../component/useInfiniteScroll";
-// import movie from "../json/movie"
+
 
 const MovieCatalog = () => {
 

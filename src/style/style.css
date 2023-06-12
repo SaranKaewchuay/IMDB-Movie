@@ -1,5 +1,6 @@
 * {
-  font-family: 'Rubik', sans-serif; 
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
 }
 
 .card {
@@ -19,7 +20,7 @@
 }
 
 
-.card-image{
+.card-image {
   width: 100%;
   height: 283px;
   border-radius: 10px 10px 0 0;
@@ -230,7 +231,7 @@
   margin-right: 20px;
 }
 
-.navbar-item button{
+.navbar-item button {
   box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -243,10 +244,10 @@
 .navbar-item Link:hover {
   text-decoration: underline;
 }
+
 .image-nav {
   width: 42px;
   height: 42px;
   display: flex;
   padding: 8px 0px 8px 18px;
 }
-

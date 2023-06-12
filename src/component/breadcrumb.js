@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function BreadCrumb(props) {
+const BreadCrumb = ({ title }) => {
   return (
     <div className="breadcrumbs">
       <Link to="/" className="text-decoration-none">
-        <span data-uk-icon="chevron-left"></span>
-        <span style={{fontWeight:"bolder"}}> Movie Catalog </span>
+        <span style={{ fontWeight: 'bolder' }}>Movies</span>
       </Link>
-      <span style={{fontSize:"26px"}}> / </span>
-      <span>{props.title}</span>
+      <span style={{ fontSize: '26px' }}> / </span>
+      <span style={{ fontWeight: 'bolder' }}>{title}</span>
     </div>
   );
-}
+};
 
 export default BreadCrumb;
