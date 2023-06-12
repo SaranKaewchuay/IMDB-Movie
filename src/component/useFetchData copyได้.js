@@ -1,28 +1,24 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// เปลี่ยนไปใช้ prevPage
 const useFetchData = (url) => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [pageIndex, setPageIndex] = useState(0);
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
    
-      const response = await axios.get(url,
-        {
-          params: {
-            startIndex: pageIndex * 28,
-            limit: 28
-          }
-        }
+      const response = await axios.get(url);
+      const newDataSlice = response.data.items.slice(
+        page * 28,
+        (page + 1) * 28
       );
 
-      console.log("response.data limit = ",response.data)
-      setData((prevData) => [...prevData, ...response.data]);
-      setPageIndex((prevIndex) => prevIndex + 1);
-
+      setData((prevData) => [...prevData, ...newDataSlice]);
+      setPage((prevPage) => prevPage + 1);
     } catch (error) {
       console.error(error);
     } finally {
