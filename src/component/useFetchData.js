@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useFetchData = (url) => {
@@ -6,7 +6,7 @@ const useFetchData = (url) => {
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = useCallback(async () => {
+  const fetchData = async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(url);
@@ -22,7 +22,7 @@ const useFetchData = (url) => {
     } finally {
       setIsLoading(false);
     }
-  }, [url, page]);
+  };
 
   useEffect(() => {
     fetchData();
@@ -32,3 +32,4 @@ const useFetchData = (url) => {
 };
 
 export default useFetchData;
+
