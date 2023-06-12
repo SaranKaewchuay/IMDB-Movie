@@ -5,19 +5,16 @@ const useFetchData = (url) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const all = FetchAllData(url)
+  const all = FetchAllData(url);
 
-
-  const fetchData = async () => {
+  const fetchData = () => {
     setIsLoading(true);
 
-      // const response = await axios.get(url);
-      const newDataSlice = all.items.slice(
-        page * 28,
-        (page + 1) * 28
-      );
-      setData((prevData) => [...prevData, ...newDataSlice]);
-      setPage((prevPage) => prevPage + 1);
+    const newDataSlice = all.items.slice(page * 28, (page + 1) * 28);
+    setData((prevData) => [...prevData, ...newDataSlice]);
+    setPage((prevPage) => prevPage + 1);
+
+    setIsLoading(false);
   };
 
   useEffect(() => {

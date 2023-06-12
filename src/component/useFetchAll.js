@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const FetchAllData = ({ url }) => {
+const FetchAllData = (url) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
