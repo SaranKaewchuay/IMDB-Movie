@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/style.css";
 import NavBar from "../component/navbar";
 import MovieCard from "../component/movieCard";
@@ -11,7 +11,13 @@ const MovieCatalog = () => {
   const { data, isLoading, fetchData } = useFetchData(
     "https://imdb-api.com/en/API/Top250Movies/k_g8cmpded"
   );
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto', 
+    });
+  })
+  
   useInfiniteScroll(fetchData);
 
   return (
