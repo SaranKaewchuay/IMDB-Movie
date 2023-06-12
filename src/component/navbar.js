@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import "../style/style.css";
 
 const handleLinkClick = () => {
-  window.location.reload();
+  setTimeout(() => {
+    window.location.reload();
+  }, 3000); // Delay the reload by 3 seconds (3000 milliseconds)
 };
-
 const NavBar = () => {
   return (
     <nav className="navbar">
@@ -17,7 +18,7 @@ const NavBar = () => {
       </div>
       <ul className="navbar-list">
         <li className="navbar-item">
-          <Link to="/" className="text-decoration-none" >
+          <Link to="/" className="text-decoration-none" onClick={handleLinkClick}>
             <button className="button">Movie</button>
           </Link>
         </li>
