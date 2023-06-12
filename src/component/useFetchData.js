@@ -19,8 +19,8 @@ const useFetchData = (url) => {
         }
       );
 
-      console.log("response.data limit = ",response.data)
-      setData((prevData) => [...prevData, ...response.data]);
+      console.log("response.data limit = ",response.data.items)
+      setData((prevData) => [...prevData, ...response.data.items]);
       setPageIndex((prevIndex) => prevIndex + 1);
 
     } catch (error) {
