@@ -4,7 +4,7 @@ import "../style/style.css";
 const handleLinkClick = () => {
   setTimeout(() => {
     window.location.reload();
-  }, 3000); // Delay the reload by 3 seconds (3000 milliseconds)
+  }, 1500); 
 };
 const NavBar = () => {
   return (
