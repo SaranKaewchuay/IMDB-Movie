@@ -8,16 +8,18 @@ import useInfiniteScroll from "../component/useInfiniteScroll";
 
 const MovieCatalog = () => {
 
+  window.scrollTo({
+    top: 0,
+    behavior: 'auto', 
+  });
+
+
   const { data, isLoading, fetchData } = useFetchData(
     "https://imdb-api.com/en/API/Top250Movies/k_g8cmpded"
   );
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'auto', 
-    });
-  })
-  
+
+   
+
   useInfiniteScroll(fetchData);
 
   return (
