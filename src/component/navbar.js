@@ -13,12 +13,12 @@ const NavBar = () => {
       </div>
       <ul className="navbar-list">
         <li className="navbar-item">
-          <Link to="/" className="text-decoration-none" target="_blank">
+          <Link to="/" className="text-decoration-none" onClick={() => window.location.reload()}>
             <button className="button">Movie</button>
           </Link>
         </li>
         <li className="navbar-item">
-          <Link to="/tv-show" className="text-decoration-none" target="_blank">
+          <Link to="/tv-show" className="text-decoration-none" onClick={() => window.location.reload()}>
             <button className="button">TV Show</button>
           </Link>
         </li>
