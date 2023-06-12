@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../style/style.css";
 import NavBar from "../component/navbar";
 import TVCard from "../component/tvCard";
@@ -8,11 +8,6 @@ import useInfiniteScroll from "../component/useInfiniteScroll";
 
 const TVShow = () => {
 
-  window.scrollTo({
-    top: 0,
-    behavior: 'auto', 
-  });
-  
   const { data, isLoading, fetchData } = useFetchData(
     "https://imdb-api.com/en/API/Top250TVs/k_g8cmpded"
   );

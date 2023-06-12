@@ -1,19 +1,23 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const useInfiniteScroll = (callback) => {
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 1
-    ) {
-      callback();
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 1
+      ) {
+        callback();
+      }
+    };
+
+    const handleScrollEvent = () => handleScroll();
+
+    window.addEventListener("scroll", handleScrollEvent);
+    return () => window.removeEventListener("scroll", handleScrollEvent);
+    
   }, [callback]);
+
 };
 
 export default useInfiniteScroll;

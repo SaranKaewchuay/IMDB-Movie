@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState, useCallback } from 'react';
 import axios from "axios";
 
 const useFetchData = (url) => {
@@ -6,10 +6,9 @@ const useFetchData = (url) => {
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
-   
       const response = await axios.get(url);
       const newDataSlice = response.data.items.slice(
         page * 28,
@@ -23,11 +22,11 @@ const useFetchData = (url) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [url, page]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return { data, isLoading, fetchData };
 };
