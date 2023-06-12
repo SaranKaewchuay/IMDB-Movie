@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react";
-import FetchAllData from "../component/useFetchAll";
+import axios from "axios";
 
 const useFetchData = (url) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const all = FetchAllData(url);
 
-  const fetchData = () => {
+  const fetchData = async () => {
     setIsLoading(true);
+    try {
+   
+      const response = await axios.get(url);
+      const newDataSlice = response.data.items.slice(
+        page * 28,
+        (page + 1) * 28
+      );
 
-    const newDataSlice = all.items.slice(page * 28, (page + 1) * 28);
-    setData((prevData) => [...prevData, ...newDataSlice]);
-    setPage((prevPage) => prevPage + 1);
-
-    setIsLoading(false);
+      setData((prevData) => [...prevData, ...newDataSlice]);
+      setPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -25,3 +33,4 @@ const useFetchData = (url) => {
 };
 
 export default useFetchData;
+
