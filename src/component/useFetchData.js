@@ -9,6 +9,7 @@ const useFetchData = (url) => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
+   
       const response = await axios.get(url);
       const newDataSlice = response.data.items.slice(
         page * 28,
@@ -26,7 +27,7 @@ const useFetchData = (url) => {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, []);
 
   return { data, isLoading, fetchData };
 };
