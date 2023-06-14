@@ -8,7 +8,7 @@ import useInfiniteScroll from "../component/useInfiniteScroll";
 
 const MovieCatalog = () => {
   const { data, isLoading, fetchData } = useFetchData(
-    "https://imdb-api.com/en/API/Top250Movies/k_juds51io"
+    "https://imdb-api.com/en/API/Top250Movies/k_37d0ds09"
   );
 
   useInfiniteScroll(fetchData);
